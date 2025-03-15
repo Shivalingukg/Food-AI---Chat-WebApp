@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Khara Pongal Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .ingredients {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .recipe-content {
+            flex: 2;
+            padding-left: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .steps, .ingredient-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step, .ingredient {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .step.visible, .ingredient.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul class="ingredient-list">
+                <li class="ingredient">1 cup Rice</li>
+                <li class="ingredient">1/2 cup Moong dal (split yellow gram)</li>
+                <li class="ingredient">2 tbsp Ghee</li>
+                <li class="ingredient">1 tsp Cumin seeds</li>
+                <li class="ingredient">1 tsp Black peppercorns</li>
+                <li class="ingredient">1/4 tsp Asafoetida (hing)</li>
+                <li class="ingredient">1/4 tsp Turmeric powder</li>
+                <li class="ingredient">A few Curry leaves</li>
+                <li class="ingredient">1 inch Ginger, grated</li>
+                <li class="ingredient">Salt to taste</li>
+                <li class="ingredient">8 cups Water</li>
+            </ul>
+        </div>
+        <div class="recipe-content">
+            <h1 style="color:#4caf50">Khara Pongal Recipe</h1>
+            <ul class="steps">
+                <li class="step"><span class="step-number">1</span>Dry roast 1/2 cup of moong dal until it turns light brown. Rinse it with water.</li>
+                <li class="step"><span class="step-number">2</span>In a pressure cooker, add 1 cup of rice, roasted moong dal, 1/4 tsp turmeric powder, and 8 cups of water.</li>
+                <li class="step"><span class="step-number">3</span>Pressure cook for 4-5 whistles until the rice and dal are cooked and mushy.</li>
+                <li class="step"><span class="step-number">4</span>Heat 2 tbsp of ghee in a pan. Add 1 tsp cumin seeds, 1 tsp black peppercorns, and a pinch of asafoetida.</li>
+                <li class="step"><span class="step-number">5</span>Add a few curry leaves and 1 inch grated ginger. Sauté for a few seconds.</li>
+                <li class="step"><span class="step-number">6</span>Add the cooked rice and dal mixture to the pan. Mix well.</li>
+                <li class="step"><span class="step-number">7</span>Add salt to taste and cook on low heat for a few minutes.</li>
+                <li class="step"><span class="step-number">8</span>Serve hot with coconut chutney or sambar.</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="https://i.ytimg.com/vi/GpOKfBlCPeg/maxresdefault.jpg" alt="Khara Pongal">
+        </div>
+    </div>
+
+    <script>
+        function revealItems() {
+            const items = document.querySelectorAll('.step, .ingredient');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+
+        window.addEventListener('load', revealItems);
+    </script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Finger Millet Halwa Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .ingredients {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .recipe-content {
+            flex: 2;
+            padding-left: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .steps, .ingredient-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step, .ingredient {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .step.visible, .ingredient.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul class="ingredient-list">
+                <li class="ingredient">1 cup Rice</li>
+                <li class="ingredient">1 cup Coconut (grated)</li>
+                <li class="ingredient">2 cups Jaggery</li>
+                <li class="ingredient">1/4 cup Ghee</li>
+                <li class="ingredient">1/4 teaspoon Cardamom powder</li>
+                <li class="ingredient">1/4 cup Cashew nuts</li>
+                <li class="ingredient">1/4 cup Raisins</li>
+            </ul>
+        </div>
+        <div class="recipe-content">
+            <h1 style="color:#4caf50">Finger Millet Halwa Recipe</h1>
+            <ul class="steps">
+                <li class="step"><span class="step-number">1</span>Soak 1 cup of rice in water for 3-4 hours.</li>
+                <li class="step"><span class="step-number">2</span>Grind the soaked rice along with 1 cup of grated coconut to a fine paste using some water.</li>
+                <li class="step"><span class="step-number">3</span>In a heavy-bottomed pan, dissolve 2 cups of jaggery in 2 cups of water. Strain to remove impurities.</li>
+                <li class="step"><span class="step-number">4</span>Add the ground rice-coconut paste to the jaggery syrup and mix well.</li>
+                <li class="step"><span class="step-number">5</span>Cook the mixture on medium heat, stirring continuously to avoid lumps.</li>
+                <li class="step"><span class="step-number">6</span>Add 1/4 cup ghee in small increments while continuing to stir.</li>
+                <li class="step"><span class="step-number">7</span>Cook until the mixture thickens and starts to leave the sides of the pan.</li>
+                <li class="step"><span class="step-number">8</span>Add 1/4 teaspoon cardamom powder and mix well.</li>
+                <li class="step"><span class="step-number">9</span>In a separate pan, fry 1/4 cup cashew nuts and 1/4 cup raisins in a little ghee until golden brown.</li>
+                <li class="step"><span class="step-number">10</span>Add the fried cashew nuts and raisins to the cooked mixture and mix well.</li>
+                <li class="step"><span class="step-number">11</span>Transfer the mixture to a greased plate and flatten it evenly.</li>
+                <li class="step"><span class="step-number">12</span>Let it cool completely, then cut into desired shapes and serve.</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ27WzPKkiFPrFzpPKHNGcNmXvH9C1LMZY__A&s" alt="Haalbai">
+        </div>
+    </div>
+
+    <script>
+        function revealItems() {
+            const items = document.querySelectorAll('.step, .ingredient');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+
+        window.addEventListener('load', revealItems);
+    </script>
+</body>
+</html>

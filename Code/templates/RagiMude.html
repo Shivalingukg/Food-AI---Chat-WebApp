@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ragi Mudde Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .ingredients {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .recipe-content {
+            flex: 2;
+            padding-left: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .steps, .ingredient-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step, .ingredient {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .step.visible, .ingredient.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul class="ingredient-list">
+                <li class="ingredient">1 cup Ragi flour (finger millet flour)</li>
+                <li class="ingredient">2 cups Water</li>
+                <li class="ingredient">Salt to taste</li>
+            </ul>
+        </div>
+        <div class="recipe-content">
+            <h1 style="color:#4caf50">Ragi Mudde Recipe</h1>
+            <ul class="steps">
+                <li class="step"><span class="step-number">1</span>In a heavy-bottomed pan, bring 2 cups of water to a boil. Add salt to taste.</li>
+                <li class="step"><span class="step-number">2</span>Mix 1 tablespoon of ragi flour in 1/4 cup water to make a paste.</li>
+                <li class="step"><span class="step-number">3</span>Add the ragi paste to the boiling water and stir continuously to avoid lumps.</li>
+                <li class="step"><span class="step-number">4</span>Slowly add the remaining ragi flour while stirring continuously.</li>
+                <li class="step"><span class="step-number">5</span>Reduce heat to low and cover the pan. Cook for 5-10 minutes.</li>
+                <li class="step"><span class="step-number">6</span>Stir well until the mixture thickens and starts to leave the sides of the pan.</li>
+                <li class="step"><span class="step-number">7</span>Remove from heat and let it cool slightly.</li>
+                <li class="step"><span class="step-number">8</span>Wet your hands with water, take a portion of the mixture, and shape it into balls (mudde).</li>
+                <li class="step"><span class="step-number">9</span>Serve hot with sambar, curry, or yogurt.</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="https://i.pinimg.com/736x/1d/96/4f/1d964f292cdc3c6ed483711c5961ccbc.jpg" alt="Ragi Mudde">
+        </div>
+    </div>
+
+    <script>
+        function revealItems() {
+            const items = document.querySelectorAll('.step, .ingredient');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+
+        window.addEventListener('load', revealItems);
+    </script>
+</body>
+</html>

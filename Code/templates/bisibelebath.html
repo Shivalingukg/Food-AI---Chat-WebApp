@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bisibelebath Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1000px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .recipe-content {
+            flex: 2;
+            padding-right: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .steps {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="recipe-content">
+            <h1 style="color:#4caf50">Bisibelebath Recipe</h1>
+            <ul class="steps">
+                <li class="step"><span class="step-number">1</span>Rinse and soak 1 cup rice and 1/2 cup toor dal for 30 minutes.</li>
+                <li class="step"><span class="step-number">2</span>Pressure cook rice and dal with 4 cups water (4-5 whistles).</li>
+                <li class="step"><span class="step-number">3</span>Roast spices: 1 tbsp each of chana dal, urad dal, coriander seeds, 1 tsp cumin seeds, 1/2 tsp fenugreek seeds, 1/2 tsp peppercorns, 4-5 dried red chilies.</li>
+                <li class="step"><span class="step-number">4</span>Add 1/4 cup grated coconut, sauté, grind to paste.</li>
+                <li class="step"><span class="step-number">5</span>Soak tamarind, extract pulp.</li>
+                <li class="step"><span class="step-number">6</span>Sauté onion, add mixed vegetables.</li>
+                <li class="step"><span class="step-number">7</span>Combine rice, dal, vegetables, spice paste, tamarind, salt.</li>
+                <li class="step"><span class="step-number">8</span>Temper with ghee, mustard, cumin, asafoetida, curry leaves, red chilies.</li>
+                <li class="step"><span class="step-number">9</span>Garnish with coriander, serve hot.</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5Yf114D6eWAxTq1CfF9ggWP-wzhSfb4fVmA&s" alt="Bisibelebath">
+        </div>
+    </div>
+
+    <script>
+        function revealSteps() {
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('visible');
+                }, index * 300);
+            });
+        }
+
+        window.addEventListener('load', revealSteps);
+    </script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Voxbot Assistant</title>
+    <style>
+        body, html {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            background: url('https://hellofuture.orange.com/app/uploads/2018/01/Intro-HELLO-FUTURE-1920x1080_v2.gif') center/cover no-repeat fixed;
+            color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+        .content {
+            text-align: center;
+            max-width: 700px;
+            padding: 20px;
+        }
+        .logo {
+            width: 60px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 3em;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        p {
+            font-size: 1.5em;
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+        }
+        li {
+            font-size: 1.4em;
+            color: #ffffff;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            margin: 15px 0;
+            padding-left: 35px;
+            position: relative;
+        }
+        li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffffff;
+        }
+        button {
+            padding: 18px 36px;
+            font-size: 1.4em;
+            color: white;
+            background-color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            margin-top: 30px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        button:hover {
+            background-color: black;
+        }
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <img src="data:image/png;base64,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" alt="Assistant Icon" class="logo">
+            <h1>Welcome to Voxbot Assistant</h1>
+            <p>Your personal assistant for all your needs.</p>
+            <p>With Voxbot, you can:</p>
+            <ul>
+                <li>Get quick answers to your questions</li>
+                <li>Receive recommendations of recipes</li>
+                <li>Get nutritional information for various foods</li>
+                <li>Get personalized recipe suggestions based on your preferences</li>
+                <li>Provide recipe recommendations based on ingredients, cuisine, or dietary preferences</li>
+            </ul>
+            <a href="/chatbot"><button>Let's Get Started</button></a>
+        </div>
+    </div>
+
+    <script>
+        function animateText() {
+            const elements = document.querySelectorAll('h1, p, li, button');
+            elements.forEach((element, index) => {
+                element.style.animationDelay = `${index * 0.5}s`;
+            });
+        }
+        window.onload = animateText;
+    </script>
+</body>
+</html>

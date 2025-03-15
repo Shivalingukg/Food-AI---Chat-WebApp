@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jolad Rotti Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .ingredients {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .recipe-content {
+            flex: 2;
+            padding-left: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .steps, .ingredient-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step, .ingredient {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .step.visible, .ingredient.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul class="ingredient-list">
+                <li class="ingredient">2 cups Jowar flour (sorghum flour)</li>
+                <li class="ingredient">Salt to taste</li>
+                <li class="ingredient">Hot water as needed</li>
+            </ul>
+        </div>
+        <div class="recipe-content">
+            <h1 style="color:#4caf50">Jolad Rotti Recipe</h1>
+            <ul class="steps">
+                <li class="step"><span class="step-number">1</span>In a bowl, mix 2 cups of jowar flour with salt to taste.</li>
+                <li class="step"><span class="step-number">2</span>Add hot water little by little and knead into a soft dough.</li>
+                <li class="step"><span class="step-number">3</span>Divide the dough into small balls.</li>
+                <li class="step"><span class="step-number">4</span>On a flat surface, roll each ball into a thin, round rotti using a rolling pin or patting it by hand.</li>
+                <li class="step"><span class="step-number">5</span>Heat a tawa (griddle) and cook the rotti on medium heat.</li>
+                <li class="step"><span class="step-number">6</span>Cook both sides until light brown spots appear. No need to use oil.</li>
+                <li class="step"><span class="step-number">7</span>Remove from heat and serve hot with chutney or curry.</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-12xA0QZ4J1aVxUHK0BLz_Pzqyfec-X9pKA&s" alt="Jolad Rotti">
+        </div>
+    </div>
+
+    <script>
+        function revealItems() {
+            const items = document.querySelectorAll('.step, .ingredient');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+
+        window.addEventListener('load', revealItems);
+    </script>
+</body>
+</html>

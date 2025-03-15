@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mysore Masala Dosa Recipe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 1200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+        .ingredients {
+            flex: 1;
+            padding-right: 20px;
+            border-right: 1px solid #e0e0e0;
+        }
+        .recipe-content {
+            flex: 2;
+            padding-left: 20px;
+        }
+        .image-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .image-container img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #4a4a4a;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.5em;
+            color: #4caf50;
+        }
+        .steps, .ingredient-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .step, .ingredient {
+            font-size: 14px;
+            margin: 10px 0;
+            color: #555;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border-radius: 5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.3s, transform 0.3s;
+        }
+        .step.visible, .ingredient.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .step-number {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            border-radius: 50%;
+            margin-right: 5px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ingredients">
+            <h2>Ingredients</h2>
+            <ul class="ingredient-list">
+                <li class="ingredient">Dosa rice</li>
+        <li class="ingredient">Urad dal</li>
+        <li class="ingredient">Toor dal</li>
+        <li class="ingredient">Chana dal</li>
+        <li class="ingredient">Fenugreek seeds</li>
+        <li class="ingredient">Potatoes</li>
+        <li class="ingredient">Onion</li>
+        <li class="ingredient">Green chilli</li>
+        <li class="ingredient">Ginger</li>
+        <li class="ingredient">Dried red chillies</li>
+        <li class="ingredient">Turmeric powder</li>
+        <li class="ingredient">Mustard seeds</li>
+        <li class="ingredient">Cumin seeds</li>
+        <li class="ingredient">Butter</li>
+        <li class="ingredient">Salt</li>
+            </ul>
+        </div>
+        <div class="recipe-content">
+            <h1 style="color:#4caf50">Mysore Masala Dosa Recipe</h1>
+            <ul class="steps">
+                <li class="step"><span class="step-number">1</span>Soak rice, urad dal, toor dal, chana dal, and methi seeds for 4-5 hours. Grind to a smooth batter, cover, and let it ferment overnight. Add washed poha to the batter before grinding.</li>
+                <li class="step"><span class="step-number">2</span>To make the red chutney, heat oil in a pan and add chana dal, ginger, garlic, and onion. Sauté until the onion is soft. Add dried red chilies, turmeric, salt, and a little water. Blend the mixture to a smooth paste.</li>
+                <li class="step"><span class="step-number">3</span>For the potato filling, heat oil in a pan and add mustard seeds. Let them splutter. Add cumin seeds, chana dal, urad dal, hing, dried red chili, and curry leaves. Sauté until the dals are golden.</li>
+                <li class="step"><span class="step-number">4</span>Add finely chopped onion, green chili, and ginger. Sauté until the onions are golden brown.</li>
+                <li class="step"><span class="step-number">5</span>Add boiled and mashed potatoes, turmeric powder, salt, and a little water. Mix well and cook for 5 minutes. Garnish with chopped coriander leaves and lemon juice.</li>
+                <li class="step"><span class="step-number">6</span>Heat a non-stick pan and pour a ladle of the dosa batter in the center, spreading it in a circular motion to make a thin dosa. Drizzle some butter around the edges.</li>
+                <li class="step"><span class="step-number">7</span>Spread a spoonful of the red chutney evenly on the dosa. Place a portion of the potato filling in the center, fold the dosa over, and cook until crispy.</li>
+                <li class="step"><span class="step-number">8</span>Serve hot with coconut chutney and sambar.</li>
+            </ul>
+        </div>
+        <div class="image-container">
+            <img src="https://media.istockphoto.com/id/481750586/photo/masala-sin.jpg?s=612x612&w=0&k=20&c=0KmrVCmb6AuMv9O41E-8tU2WD6DVyVcVxin4DXhzx_c=" alt="Mysore Masala Dosa">
+        </div>
+    </div>
+
+    <script>
+        function revealItems() {
+            const items = document.querySelectorAll('.step, .ingredient');
+            items.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('visible');
+                }, index * 100);
+            });
+        }
+
+        window.addEventListener('load', revealItems);
+    </script>
+</body>
+</html>

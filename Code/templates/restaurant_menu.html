@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ restaurant.name }} - Order Food</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        .header {
+            background-color: #cb202d;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        .app-name {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+        }
+        .restaurant-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .restaurant-image {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 2rem;
+        }
+        .restaurant-info h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+        }
+        .restaurant-cuisine, .restaurant-rating {
+            margin: 0 0 0.5rem 0;
+            color: #666;
+        }
+        .restaurant-rating span {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .menu-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .menu-item-info {
+            padding: 1rem;
+        }
+        .menu-item-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin: 0 0 0.5rem 0;
+        }
+        .menu-item-price {
+            font-weight: 700;
+            color: #cb202d;
+        }
+        .add-to-order {
+            display: block;
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #cb202d;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 0 0 8px 8px;
+            font-weight: 700;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+        .add-to-order:hover {
+            background-color: #a61c27;
+        }
+        #order-summary {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        #order-items {
+            list-style-type: none;
+            padding: 0;
+        }
+        #order-items li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        #total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #cb202d;
+        }
+        #place-order {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #place-order:hover {
+            background-color: #45a049;
+        }
+        #order-confirmation {
+            display: none;
+            background: #dff0d8;
+            color: #3c763d;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="restaurant-header">
+            <img src="{{ restaurant.image_url }}" alt="{{ restaurant.name }}" class="restaurant-image">
+            <div class="restaurant-info">
+                <h1>{{ restaurant.name }}</h1>
+                <p class="restaurant-cuisine">{{ restaurant.cuisine }}</p>
+                <p class="restaurant-rating">Rating: <span>{{ restaurant.rating }}</span></p>
+            </div>
+        </div>
+        
+        <div id="menu">
+            <h2>Menu</h2>
+            <div class="menu-grid">
+                {% for item in restaurant.menu %}
+                <div class="menu-item">
+                    <div class="menu-item-info">
+                        <h3 class="menu-item-name">{{ item.name }}</h3>
+                        <p class="menu-item-price">${{ item.price }}</p>
+                    </div>
+                    <button class="add-to-order" data-item="{{ item.name }}" data-price="{{ item.price }}">Add to Order</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="order-summary">
+            <h2>Your Order</h2>
+            <ul id="order-items"></ul>
+            <p>Total: $<span id="total">0</span></p>
+            <button id="place-order">Place Order</button>
+        </div>
+        <div id="order-confirmation">
+            Your order has been placed successfully! Your food is on the way.
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            let total = 0;
+
+            $('.add-to-order').click(function() {
+                const item = $(this).data('item');
+                const price = $(this).data('price');
+                $('#order-items').append(`<li>${item} - $${price} <button class="remove-item">Remove</button></li>`);
+                total += price;
+                $('#total').text(total.toFixed(2));
+            });
+
+            $(document).on('click', '.remove-item', function() {
+                const price = parseFloat($(this).parent().text().split('$')[1]);
+                total -= price;
+                $('#total').text(total.toFixed(2));
+                $(this).parent().remove();
+            });
+
+            $('#place-order').click(function() {
+                if (total > 0) {
+                    $('#order-confirmation').slideDown();
+                    setTimeout(function() {
+                        $('#order-confirmation').slideUp();
+                    }, 5000);
+                    // Reset order
+                    $('#order-items').empty();
+                    total = 0;
+                    $('#total').text('0');
+                } else {
+                    alert('Please add items to your order before placing it.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
